@@ -1,0 +1,52 @@
+$font-size-xxl: 42px;
+$font-size-xl: 36px;
+$font-size-l: 28px;
+$font-size-ml: 22px;
+$font-size-m: 18px;
+$font-size-s: 14px;
+
+$boldness-thin: 200;
+$boldness-mid: 400;
+$boldness-thick: 600;
+$boldness-thicker: 800;
+
+$color-primary-lightest: #e6fcf5;
+$color-primary-lighter: #96f2d7;
+$color-primary-light: #38d9a9;
+$color-primary: #20c997;
+$color-primary-dark: #0ca678;
+$color-primary-darkest: #087f5b;
+
+$color-primary-gradient: linear-gradient(
+  90deg,
+  rgb(33, 95, 114) -8%,
+  rgba(32, 201, 151, 1) 0%,
+  rgba(0, 173, 156, 1) 52%,
+  rgba(0, 149, 152, 1) 68%,
+  rgba(0, 122, 139, 1) 86%,
+  rgba(0, 122, 139, 1) 100%
+);
+
+$color-primary-c-lighter: #d796aa;
+$color-primary-c-light: #bf8093;
+$color-primary-c: #9b4e65;
+$color-primary-c-dark: #783c4d;
+
+$color-white-creme: #f3eed9;
+$color-grey-white: #f8f9fa;
+$color-grey-lighter: #e9ecef;
+$color-grey-light: #ced4da;
+$color-grey: #adb5bd;
+$color-grey-dark: #495057;
+$color-grey-darker: #343a40;
+$color-grey-black: #212529;
+
+$page-space-lr: 10rem;
+
+$margin-nav-fit: 0;
+
+$transition-fast: 0.5s;
+
+$page-margin-horizontal: 6rem;
+$page-margin-top: 4rem;
+$page-margin-bottom: 2rem;

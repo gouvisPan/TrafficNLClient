@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import TrafficMap from "./components/TrafficMap/TrafficMap";
+
+import { useAppDispatch, useAppSelector } from "./hooks/hooks";
+import { getTraffic } from "./store/actions/data-actions";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const dispatch = useAppDispatch();
+  const isLoading = useAppSelector((state) => state.data.isLoading);
+  const isSuccess = useAppSelector((state) => state.data.isSuccess);
+
+  useEffect(() => {
+    dispatch(getTraffic());
+
+    return () => {};
+  }, [dispatch]);
+
+  return <div>{isSuccess && !isLoading ? <TrafficMap /> : ""}</div>;
 }
 
 export default App;

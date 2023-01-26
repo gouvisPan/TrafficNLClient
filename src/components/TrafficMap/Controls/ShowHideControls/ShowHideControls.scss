@@ -1,0 +1,23 @@
+@import "../../../../sass/global";
+
+.toggle-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  padding-top: 1rem;
+  img {
+    width: 3rem;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:active {
+      filter: brightness(120%);
+    }
+  }
+}
+
+.grey-effect {
+  filter: (grayscale(80));
+}
