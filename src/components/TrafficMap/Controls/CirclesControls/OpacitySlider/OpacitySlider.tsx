@@ -1,6 +1,6 @@
 import React from "react";
-import { useAppDispatch, useAppSelector } from "../../../../hooks/hooks";
-import { uiActions } from "../../../../store/reducers/ui-slice";
+import { useAppDispatch, useAppSelector } from "../../../../../hooks/hooks";
+import { uiActions } from "../../../../../store/reducers/ui-slice";
 import "./OpacitySlider.scss";
 
 const OpacitySlider = () => {

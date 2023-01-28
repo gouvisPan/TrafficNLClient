@@ -1,4 +1,4 @@
-@import "../../../../sass/global";
+@import "../../../../../sass/global";
 
 .opacity-container {
   color: white;
@@ -7,6 +7,8 @@
   align-items: center;
   width: 100%;
   margin-bottom: 1rem;
+  animation: drop 1s;
+
   label {
     margin-top: 1rem;
     align-self: center;
@@ -14,5 +16,15 @@
   input {
     padding: 0.2rem 1rem;
     width: 100%;
+  }
+}
+
+@keyframes drop {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

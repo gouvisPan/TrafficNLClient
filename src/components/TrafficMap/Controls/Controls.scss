@@ -7,6 +7,7 @@
   transition: 0.3s ease-in;
 
   &__content {
+    margin-top: 0.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -78,5 +79,38 @@
   }
   100% {
     transform: translateX(-400%);
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .controls-container {
+    &__content {
+      margin-top: 1rem;
+      gap: 2rem;
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  .controls-container {
+    width: 140%;
+
+    &__content {
+      gap: 1.5rem;
+    }
+  }
+
+  .closed {
+    width: 0%;
+    transition: 0.3s ease-in;
+  }
+
+  .move-cl {
+    transform: translateX(-400%);
+    animation: moveLeft 0.4s;
+  }
+
+  .move-r {
+    transform: translateX(95%);
+    animation: slideOut 1s;
   }
 }

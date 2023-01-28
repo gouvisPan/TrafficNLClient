@@ -79,7 +79,7 @@ const CongestionCircle: React.FC<{ jam: TrafficJam }> = (props) => {
   };
 
   const markerClickHandler = () => {
-    dispatch(uiActions.setDisplayingEvent(props.jam));
+    dispatch(uiActions.setDisplayingEvent(props.jam.id));
     if (props.jam.label === "closed") return;
 
     const service = new google.maps.DirectionsService();

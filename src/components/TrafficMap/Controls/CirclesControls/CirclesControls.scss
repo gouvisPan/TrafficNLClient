@@ -6,14 +6,34 @@
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
-  &__button {
+
+  &__button-outter {
+    width: 80%;
+    background: linear-gradient(
+      340deg,
+      rgba(209, 1, 1, 1) 0%,
+      rgba(179, 4, 4, 1) 20%,
+      rgba(0, 0, 0, 1) 49%,
+      rgba(1, 172, 18, 1) 80%,
+      rgba(1, 176, 19, 1) 100%
+    );
+    border-radius: 10px;
+  }
+
+  &__button-inner {
     background-color: $color-grey-white;
     padding: 0.2rem 0.5rem;
-    width: 100%;
+    width: 85%;
     border-radius: 10px;
-
+    transition: 0.4s;
+    transform: translateX(-5%);
     &:hover {
       cursor: pointer;
     }
   }
+}
+
+.slide-on {
+  transform: translateX(12%);
+  transition: 0.4s;
 }

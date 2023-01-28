@@ -1,11 +1,11 @@
 import React from "react";
 import "./Controls.scss";
 
-import { useAppDispatch, useAppSelector } from "../../../hooks/hooks";
-import { uiActions } from "../../../store/reducers/ui-slice";
+import { useAppSelector } from "../../../hooks/hooks";
+
 import SliderButton from "./SliderButton";
 import ShowHideControls from "./ShowHideControls/ShowHideControls";
-import OpacitySlider from "./OpacitySlider/OpacitySlider";
+import OpacitySlider from "./CirclesControls/OpacitySlider/OpacitySlider";
 import HistoryPicker from "./HistorPicker/HistoryPicker";
 import CirclesControls from "./CirclesControls/CirclesControls";
 import InfoWindow from "./InfoWindow/InfoWindow";

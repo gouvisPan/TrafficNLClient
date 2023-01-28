@@ -10,7 +10,7 @@ interface uiSliceState {
   isCongestionEnabled: boolean;
   areCirclesEnabled: boolean;
   opacityValue: number;
-  displayingEvent: undefined | TrafficJam;
+  displayingEvent: undefined | number;
 }
 
 const initialState: uiSliceState = {
@@ -42,7 +42,7 @@ const uiSlice = createSlice({
     toggleCircles(state) {
       state.areCirclesEnabled = !state.areCirclesEnabled;
     },
-    setDisplayingEvent(state, action: PayloadAction<TrafficJam | undefined>) {
+    setDisplayingEvent(state, action: PayloadAction<number | undefined>) {
       state.displayingEvent = action.payload;
     },
     setOpacityValue(state, action: PayloadAction<number>) {

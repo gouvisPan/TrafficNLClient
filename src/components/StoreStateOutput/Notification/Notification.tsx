@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { BiErrorCircle } from "react-icons/bi";
-import { useAppDispatch } from "../../../hooks/hooks";
+
 import "./Notification.scss";
 
 interface NotificationProps {
@@ -10,9 +10,6 @@ interface NotificationProps {
 
 const Notification: React.FC<NotificationProps> = (props) => {
   const [isShown, setIsShown] = useState(true);
-  const dispatch = useAppDispatch();
-
-  setTimeout(() => {}, 4000);
 
   return (
     <div className={`notification ${props.type} ${isShown && " shown"}`}>
