@@ -1,6 +1,6 @@
 import React from "react";
-import { BsFillArrowRightCircleFill } from "react-icons/bs";
-import { BsFillArrowLeftCircleFill } from "react-icons/bs";
+import { BiRightArrow } from "react-icons/bi";
+import { BiLeftArrow } from "react-icons/bi";
 import { useAppDispatch, useAppSelector } from "../../../hooks/hooks";
 import { uiActions } from "../../../store/reducers/ui-slice";
 import "./Controls.scss";
@@ -9,12 +9,19 @@ const SliderButton = () => {
   const dispatch = useAppDispatch();
   const isSliderOpen = useAppSelector((state) => state.ui.isSliderOpen);
 
+  const slideClickHandler = () => {
+    dispatch(uiActions.toggleSlider());
+  };
+
   return (
-    <div className="slider" onClick={() => dispatch(uiActions.toggleSlider())}>
+    <div
+      className={`slider ${!isSliderOpen && "move-r"}`}
+      onClick={slideClickHandler}
+    >
       {isSliderOpen ? (
-        <BsFillArrowLeftCircleFill className="slider__icon" />
+        <BiLeftArrow className="slider__icon" />
       ) : (
-        <BsFillArrowRightCircleFill className="slider__icon" />
+        <BiRightArrow className="slider__icon" />
       )}
     </div>
   );

@@ -1,0 +1,14 @@
+@import "../../../sass/global";
+
+.spinner-loader {
+  z-index: 99;
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+}
+
+@media screen and (max-width: 1000) {
+  .spinner-loader {
+    top: 25%;
+  }
+}

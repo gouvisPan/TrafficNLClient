@@ -10,9 +10,10 @@ const RoadWorkMarker: React.FC<{ work: Roadwork; clusterer: any }> = (
     url: roadwork,
     scaledSize: new google.maps.Size(30, 30),
   };
+
   return (
     <Marker
-      position={{ lat: props.work.fromLoc.lat, lng: props.work.fromLoc.lon }}
+      position={props.work.fromLoc}
       animation={google.maps.Animation.DROP}
       options={{
         icon,

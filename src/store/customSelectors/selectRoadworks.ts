@@ -1,29 +1,35 @@
 import Roadwork from "../../model/Roadwork";
 
-export const selectRoadworks = (data: any) => {
+export const selectRoadworks = (events: any) => {
   const roadworkList: Roadwork[] = [];
 
-  data.forEach((road: any) => {
-    let tmpRoadwork: Roadwork;
+  if (events) {
+    events.forEach((event: any) => {
+      let tmpWork: Roadwork;
 
-    road.segments.forEach((segment: any) => {
-      if (segment.roadworks) {
-        segment.roadworks.forEach((roadwork: any) => {
-          tmpRoadwork = {
-            id: roadwork.id,
-            from: roadwork.from,
-            to: roadwork.to,
-            fromLoc: roadwork.fromLoc,
-            toLoc: roadwork.toLoc,
-            label: roadwork.label,
-            reason: roadwork.reason,
-          };
+      if (event.type === "roadwork") {
+        tmpWork = {
+          id: event.id,
+          from: event.from,
+          to: event.to,
+          fromLoc: event.fromLoc,
+          toLoc: event.toLoc,
+          label: event.label,
+          reason: event.reason,
+        };
 
-          roadworkList.push(tmpRoadwork);
-        });
+        //removing dublicates because the api returns some dublicate roadwork and clustering doesnt work as intended
+        if (
+          !roadworkList.some(
+            (roadwork) =>
+              roadwork.fromLoc.lat === tmpWork.fromLoc.lat &&
+              roadwork.fromLoc.lng === tmpWork.fromLoc.lng
+          )
+        ) {
+          roadworkList.push(tmpWork);
+        }
       }
     });
-  });
-
+  }
   return roadworkList;
 };

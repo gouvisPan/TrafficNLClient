@@ -11,7 +11,7 @@ const OpacitySlider = () => {
   };
   return (
     <div className="opacity-container">
-      <label>Congestion Opacity:</label>
+      <label>Visibility:</label>
       <input
         type="range"
         min="0"

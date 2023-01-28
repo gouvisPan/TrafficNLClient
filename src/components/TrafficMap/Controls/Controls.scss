@@ -1,28 +1,35 @@
 @import "../../../sass/global";
 
 .controls-container {
-  width: 20%;
+  width: 28%;
   background-color: $color-grey-black;
   position: relative;
   transition: 0.3s ease-in;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
 }
 
 .slider {
   position: absolute;
   right: 0;
-  top: 50%;
+  top: 70%;
   z-index: 4;
-  transform: translateX(50%);
+  transform: translateX(0%);
+  background-color: $color-grey-black;
+  padding: 0.6rem 0rem;
+  transition: 0.2s;
 
   &__icon {
     color: white;
+    scale: (0.9);
 
-    width: 2rem;
-    height: 2rem;
+    width: 1.6rem;
+    height: 1.6rem;
     &:hover {
       cursor: pointer;
     }
@@ -32,4 +39,44 @@
 .closed {
   width: 0%;
   transition: 0.3s ease-in;
+}
+
+.move-cl {
+  transform: translateX(-400%);
+  animation: moveLeft 0.4s;
+}
+
+.move-r {
+  transform: translateX(95%);
+  animation: slideOut 1s;
+}
+
+@keyframes slideOut {
+  0% {
+    transform: translateX(0%);
+  }
+  33% {
+    transform: translateX(100%);
+  }
+  50% {
+    transform: translateX(120%);
+  }
+  60% {
+    transform: translateX(100%);
+  }
+  70% {
+    transform: translateX(110%);
+  }
+  80% {
+    transform: translateX(95%);
+  }
+}
+
+@keyframes moveLeft {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-400%);
+  }
 }

@@ -10,7 +10,7 @@ const RadarMarker: React.FC<{ radar: Radar; clusterer: any }> = (props) => {
   };
   return (
     <Marker
-      position={{ lat: props.radar.fromLoc.lat, lng: props.radar.fromLoc.lon }}
+      position={props.radar.fromLoc}
       options={{
         icon,
       }}

@@ -1,38 +1,68 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { getTraffic } from "../actions/data-actions";
+import StoreEvent from "../../model/StoreEvent";
+import { getLatestTraffic, getSpecificTraffic } from "../actions/data-actions";
 
 interface dataSliceState {
   isLoading: boolean;
   isSuccess: boolean;
   error: null | string;
-  data: any;
+  data: StoreEvent[] | undefined;
 }
 
 const initialState: dataSliceState = {
   isLoading: false,
   isSuccess: false,
   error: null,
-  data: null,
+  data: undefined,
 };
 
 const dataSlice = createSlice({
   name: "user",
   initialState,
-  reducers: {},
+  reducers: {
+    clearErrorState(state) {
+      state.error = null;
+    },
+  },
   extraReducers(builder) {
     builder
-      .addCase(getTraffic.pending, (state) => {
+      .addCase(getLatestTraffic.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(getTraffic.fulfilled, (state, action: PayloadAction<any>) => {
-        state.isLoading = false;
-        state.isSuccess = true;
-        state.data = action.payload;
+      .addCase(
+        getLatestTraffic.fulfilled,
+        (state, action: PayloadAction<StoreEvent[] | undefined>) => {
+          state.isLoading = false;
+          state.isSuccess = true;
+          state.data = action.payload;
+        }
+      )
+      .addCase(
+        getLatestTraffic.rejected,
+        (state, action: PayloadAction<any>) => {
+          state.isLoading = false;
+          state.error = action.payload;
+        }
+      )
+      .addCase(getSpecificTraffic.pending, (state) => {
+        state.isLoading = true;
       })
-      .addCase(getTraffic.rejected, (state, action: PayloadAction<any>) => {
-        state.isLoading = false;
-        state.error = action.payload;
-      });
+      .addCase(
+        getSpecificTraffic.fulfilled,
+        (state, action: PayloadAction<StoreEvent[] | undefined>) => {
+          state.isLoading = false;
+          state.isSuccess = true;
+          state.data = action.payload;
+        }
+      )
+      .addCase(
+        getSpecificTraffic.rejected,
+        (state, action: PayloadAction<any>) => {
+          state.isLoading = false;
+          console.log("action.payload");
+          state.error = action.payload;
+        }
+      );
   },
 });
 

@@ -1,0 +1,25 @@
+@import "../../../../sass/global";
+
+.displaying-jam {
+  margin-top: 0rem;
+  background-color: $color-grey-white;
+  padding: 0.8rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  width: 80%;
+  font-size: 14px;
+
+  h2 {
+    margin: 0;
+    margin-bottom: 0.4rem;
+    align-self: center;
+    font-size: 20px;
+  }
+
+  &__info {
+    margin-bottom: 0.2rem;
+    font-weight: 700;
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,58 @@
+@import "../../../sass/global";
+.notification {
+  position: fixed;
+  bottom: 0;
+  right: 0%;
+  width: 25vw;
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+
+  background-color: $color-grey-darker;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  border-radius: 0.4rem 0 0 0;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: -0.1rem;
+  padding: 0.2rem 1rem;
+  z-index: 4;
+}
+
+.shown {
+  transform: translateY(100%);
+  animation: 5s slidein;
+}
+.error {
+  border-right: rgb(150, 25, 25) 8px solid;
+}
+
+.success {
+  border-right: rgb(31, 150, 25) 4px solid;
+}
+
+.message-icon {
+  font-size: 22px;
+}
+
+@keyframes slidein {
+  0% {
+    transform: translateY(100%);
+  }
+  10% {
+    transform: translateY(0);
+  }
+  90% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .notification {
+    width: 70vw;
+  }
+}

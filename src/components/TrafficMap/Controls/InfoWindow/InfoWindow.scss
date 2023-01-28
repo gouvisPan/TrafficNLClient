@@ -1,0 +1,44 @@
+@import "../../../../sass/global";
+
+.info-c {
+  position: absolute;
+  bottom: 2rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  transition: 0.5s;
+  border-radius: 30px;
+  color: white;
+  border: white 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: flex-end;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.open {
+  width: 10rem;
+  height: 5rem;
+  transition: 0.5s;
+  padding: 0.1rem 1.5rem;
+
+  p {
+    animation: fade 0.6s ease-out;
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
