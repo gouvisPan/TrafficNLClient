@@ -13,6 +13,7 @@ export const normalizeApiEvents = (apiEvents: ApiEvent[]) => {
       to: apiEvent.to,
       fromLoc: { lat: apiEvent.fromLocLat, lng: apiEvent.fromLocLon },
       toLoc: { lat: apiEvent.toLocLat, lng: apiEvent.toLocLon },
+      polyLine: apiEvent.polyLine || undefined,
       delay: apiEvent.delay || undefined,
       distance: apiEvent.distance || undefined,
       reason: apiEvent.reason || undefined,

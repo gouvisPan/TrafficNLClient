@@ -8,6 +8,7 @@ export default interface StoreEvent {
   to: string;
   fromLoc: LatLngLiteral;
   toLoc: LatLngLiteral;
+  polyLine?: string;
   delay?: number;
   distance?: number;
   reason?: string;

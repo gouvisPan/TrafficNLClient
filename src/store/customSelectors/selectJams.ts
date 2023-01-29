@@ -14,6 +14,7 @@ export const selectJams = (events: StoreEvent[] | undefined) => {
           id: event.id,
           road: event.road,
           delay: event.delay,
+          polyLine: event.polyLine,
           distance: event.distance,
           from: event.from,
           to: event.to,

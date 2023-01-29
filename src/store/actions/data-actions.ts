@@ -11,7 +11,6 @@ export const getLatestTraffic = createAsyncThunk(
       thunkApi.dispatch(dataActions.clearErrorState());
 
       const response = await api.fetchLatestTraffic();
-      console.log(response?.data.data.data);
       const storeEvents = normalizeApiEvents(response?.data.data.data);
 
       return storeEvents;

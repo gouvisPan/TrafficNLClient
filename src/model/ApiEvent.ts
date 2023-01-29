@@ -12,7 +12,7 @@ export default interface ApiEvent {
   distance?: number;
   reason?: string;
   label?: string;
-
+  polyLine?: string;
   _id: string;
   createdAt: string;
   updatedAt: string;

@@ -11,7 +11,7 @@ const InfoWindow = () => {
       onClick={() => setIsOpen(!isOpen)}
     >
       {isOpen ? (
-        <p>Click on congestion marks to see the corresponding route</p>
+        <p>Click on map-event marks to see the extra information!</p>
       ) : (
         <AiOutlineExclamation />
       )}

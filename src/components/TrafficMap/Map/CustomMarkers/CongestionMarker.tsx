@@ -1,19 +1,28 @@
 import React, { useState } from "react";
 import Roadwork from "../../../../model/Roadwork";
 import roadwork from "../../../../assets/roadwork.png";
-import { Circle, Marker, DirectionsRenderer } from "@react-google-maps/api";
+import {
+  Circle,
+  Marker,
+  DirectionsRenderer,
+  Polyline,
+} from "@react-google-maps/api";
 import TrafficJam from "../../../../model/TrafficJam";
 import { calculateCenter } from "../../../../helpers/calculateCenter";
 import { calculateDistance } from "../../../../helpers/calculateDistance";
 import congestionIcon from "../../../../assets/warning.png";
 import { useAppDispatch, useAppSelector } from "../../../../hooks/hooks";
 import { uiActions } from "../../../../store/reducers/ui-slice";
+import { decode } from "@googlemaps/polyline-codec";
+import { decodePolylinePath } from "../../../../helpers/decodePolylinePath";
+import { normalize } from "path";
 
 type DirectionsResult = google.maps.DirectionsResult;
 
 const colorRed = "#FF5252";
 const colorOrange = "#FBC02D";
 const colorGreen = "#8BC34A";
+const colorBlack = "#444";
 
 const CongestionCircle: React.FC<{ jam: TrafficJam }> = (props) => {
   const dispatch = useAppDispatch();
@@ -26,6 +35,7 @@ const CongestionCircle: React.FC<{ jam: TrafficJam }> = (props) => {
     strokeOpacity: 0.5,
     strokeWeight: 2,
     clickable: false,
+    zIndex: 2,
     draggable: false,
     editable: false,
     visible: true,
@@ -33,35 +43,30 @@ const CongestionCircle: React.FC<{ jam: TrafficJam }> = (props) => {
   };
   const lowCongestion = {
     ...defaultOptions,
-    zIndex: 3,
     strokeColor: colorGreen,
     fillColor: colorGreen,
   };
   const middleCongestion = {
     ...defaultOptions,
-    zIndex: 2,
     strokeColor: colorOrange,
     fillColor: colorOrange,
   };
   const highCongestion = {
     ...defaultOptions,
-    zIndex: 1,
     strokeColor: colorRed,
     fillColor: colorRed,
   };
 
   const closedRoad = {
     ...defaultOptions,
-    zIndex: 1,
-    strokeColor: "#444",
-    fillColor: "#444",
+    strokeColor: colorBlack,
+    fillColor: colorBlack,
   };
 
   const center = calculateCenter(props.jam.fromLoc, props.jam.toLoc);
   const radius = calculateDistance(props.jam.fromLoc, props.jam.toLoc) / 2;
-
-  let options = highCongestion;
-  let routeColor = colorRed;
+  let routeColor = colorBlack;
+  let options = closedRoad;
 
   if (props.jam.delay < 500) {
     options = lowCongestion;
@@ -69,9 +74,10 @@ const CongestionCircle: React.FC<{ jam: TrafficJam }> = (props) => {
   } else if (props.jam.delay < 800) {
     options = middleCongestion;
     routeColor = colorOrange;
+  } else if (props.jam.delay < 1100) {
+    options = highCongestion;
+    routeColor = colorRed;
   }
-
-  if (!props.jam.delay) options = closedRoad;
 
   const iconS = {
     url: congestionIcon,
@@ -110,8 +116,19 @@ const CongestionCircle: React.FC<{ jam: TrafficJam }> = (props) => {
           clickable: true,
         }}
       />
+      {props.jam.polyLine && (
+        <Polyline
+          path={decodePolylinePath(props.jam.polyLine)}
+          options={{
+            geodesic: true,
+            strokeColor: routeColor,
+            strokeOpacity: 1,
+            strokeWeight: 5,
+          }}
+        />
+      )}
 
-      {directions && (
+      {/* {directions && (
         <DirectionsRenderer
           directions={directions}
           options={{
@@ -123,7 +140,7 @@ const CongestionCircle: React.FC<{ jam: TrafficJam }> = (props) => {
             },
           }}
         />
-      )}
+      )} */}
     </>
   );
 };
