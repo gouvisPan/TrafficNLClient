@@ -7,7 +7,5 @@ export const decodePolylinePath = (polyString: string) => {
     return { lat: pair[0], lng: pair[1] };
   });
 
-  console.log(normalizedPath);
-
   return normalizedPath;
 };

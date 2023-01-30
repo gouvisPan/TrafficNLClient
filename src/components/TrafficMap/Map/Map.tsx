@@ -7,6 +7,7 @@ import RoadWorkMarker from "./CustomMarkers/RoadWorkMarker";
 import { selectRadars } from "../../../store/customSelectors/selectRadars";
 import RadarMarker from "./CustomMarkers/RadarMarker";
 import { selectJams } from "../../../store/customSelectors/selectJams";
+import CongestionDrawings from "./CustomMarkers/CongestionDrawings";
 import CongestionMarker from "./CustomMarkers/CongestionMarker";
 
 type LatLngLiteral = google.maps.LatLngLiteral;
@@ -21,6 +22,7 @@ const Map = () => {
   const { isCongestionEnabled } = useAppSelector((state) => state.ui);
 
   const mapRef = useRef<GoogleMap>();
+  //displaying YourSurprise as the default landing location
   const defaultCenter = useMemo<LatLngLiteral>(
     () => ({ lat: 51.645253, lng: 3.938875 }),
     []
@@ -38,7 +40,7 @@ const Map = () => {
   return (
     <div className="map">
       <GoogleMap
-        zoom={9}
+        zoom={8}
         center={defaultCenter}
         mapContainerClassName="map-con"
         options={mapOptions}
@@ -81,8 +83,26 @@ const Map = () => {
           ""
         )}
 
+        {isCongestionEnabled ? (
+          <MarkerClusterer>
+            {(clusterer) => (
+              <>
+                {jams.map((jam) => (
+                  <CongestionMarker
+                    jam={jam}
+                    key={jam.id}
+                    clusterer={clusterer}
+                  />
+                ))}
+                {}
+              </>
+            )}
+          </MarkerClusterer>
+        ) : (
+          ""
+        )}
         {isCongestionEnabled
-          ? jams.map((jam) => <CongestionMarker jam={jam} key={jam.id} />)
+          ? jams.map((jam) => <CongestionDrawings jam={jam} key={jam.id} />)
           : ""}
       </GoogleMap>
     </div>

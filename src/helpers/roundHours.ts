@@ -5,7 +5,7 @@ export const roundHours = (date: number) => {
   let hoursInt = parseInt(hoursString);
 
   hoursInt = minutesInt > 45 ? hoursInt + 1 : hoursInt;
-  minutesString = minutesInt > 45 || minutesInt < 15 ? "00" : "30";
+  minutesString = minutesInt >= 45 || minutesInt <= 15 ? "00" : "30";
 
   if (hoursInt === 24) hoursInt = 0;
   if (hoursInt === -1) hoursInt = 23;
