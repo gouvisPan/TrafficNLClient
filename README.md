@@ -19,7 +19,7 @@ A web application that displays information about the traffic situation in the N
 - (NodeJS with Express and MongoDB -Mongoose- for the backend)
 
 ---
----
+
 ## Screenshots
 
 
