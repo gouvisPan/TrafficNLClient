@@ -2,7 +2,7 @@
 
 ## Description 
 
-A web application that displays information about the traffic situation in the Netherlands, including roadworks, speed radars and congestion. The app works in  conjunction with the coresponding server ( https://github.com/gouvisPan/TrafficNLServer ) which fetches all the data from the ANWB api and stores it in MongoD.
+A web application that displays information about the traffic situation in the Netherlands, including roadworks, speed radars and congestion. The app works in  conjunction with the coresponding server ( https://github.com/gouvisPan/TrafficNLServer ) which fetches all the data from the ANWB api and stores it in MongoDB.
 
 
 ## Features
