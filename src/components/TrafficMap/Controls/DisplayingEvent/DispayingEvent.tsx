@@ -5,7 +5,7 @@ import Roadwork from "../../../../model/Roadwork";
 import TrafficJam from "../../../../model/TrafficJam";
 import "./DisplayingEvent.scss";
 import * as typeCheck from "../../../../model/TypeCheck";
-import { selectEventById } from "../../../../store/customSelectors/selectEventById";
+import { selectEventById } from "../../../../store/selectors/selectEventById";
 
 const colorRed = "#FF5252";
 const colorOrange = "#FBC02D";
