@@ -14,6 +14,9 @@ const HistoryPicker = () => {
     setMenuState(parseInt(e.currentTarget.value));
     dispatch(getSpecificTraffic(parseInt(e.currentTarget.value)));
   };
+  //a basic output of the last day devided in 48 half-hour options is being implemented
+  //just to showcase the history functionallity. In a production app a custom date picker
+  //would be a better option
 
   for (let i = 1; i < 48; i++) {
     const tmpDate = Date.now() - i * 30 * 60 * 1000;
