@@ -37,6 +37,8 @@ A web application that displays information about the traffic situation in the N
 
 5) Start the app: npm start
 
+note: The proxy of the application is set to http://localhost:3000/.
+
 
 ## Available Scripts
 
