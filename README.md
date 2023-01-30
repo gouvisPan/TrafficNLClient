@@ -27,7 +27,10 @@ A web application that displays information about the traffic situation in the N
 ### NodeJS is a prerequisite, install latest NodeJS here : https://nodejs.org/en/download/
 
 ### Instructions
-1) Clone git repo: git clone https://github.com/gouvisPan/TrafficNLClient.git
+1) Clone git repo:
+```
+git clone https://github.com/gouvisPan/TrafficNLClient.git
+```
 
 2) Go to the project directory: cd TrafficNLClient
 
