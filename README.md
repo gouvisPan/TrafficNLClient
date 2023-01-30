@@ -1,6 +1,31 @@
-# Getting Started with Create React App
+# TrafficNL
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description 
+
+A web applicaiton that displays information about the traffic situation in the Netherlands, including roadworks, speed radars and congestion. The app works in  conjunction with the coresponding server ( https://github.com/gouvisPan/TrafficNLServer ) which fetches all the data from the ANWB api and stores it in MongoDB.
+
+
+## Features
+- User can see information about varius event types, like roadworks, radars and congestion
+- User can tweak viasualy the displaying data to match his/her needs  
+- History data displaying option (for the past day)
+
+
+## Technologies and Tools used
+- Typescript,React and SCSS 
+- Redux and Redux toolkit for data persistance throughout the various components of the App
+- GoogleMaps API for the Map/Marker/Polyline integrations
+- Axios for the API calls
+- (NodeJS with Express and MongoDB -Mongoose- for the backend)
+
+---
+---
+## Screenshots
+
+
+## How to
+
+1) seggsgsw
 
 ## Available Scripts
 
