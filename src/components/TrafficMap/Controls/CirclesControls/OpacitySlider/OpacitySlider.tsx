@@ -15,7 +15,7 @@ const OpacitySlider = () => {
       <input
         type="range"
         min="0"
-        max="100"
+        max="40"
         value={opacityValue}
         onChange={handleChange}
       />

@@ -26,7 +26,7 @@ const CongestionDrawings: React.FC<{ jam: TrafficJam }> = (props) => {
     draggable: false,
     editable: false,
     visible: true,
-    fillOpacity: opacityValue / 100 - 0.1,
+    fillOpacity: opacityValue / 100,
   };
   const lowCongestion = {
     ...defaultOptions,
