@@ -7,7 +7,7 @@ import RoadWorkMarker from "./CustomMarkers/RoadWorkMarker";
 import { selectRadars } from "../../../store/customSelectors/selectRadars";
 import RadarMarker from "./CustomMarkers/RadarMarker";
 import { selectJams } from "../../../store/customSelectors/selectJams";
-import CongestionCircle from "./CustomMarkers/CongestionMarker";
+import CongestionMarker from "./CustomMarkers/CongestionMarker";
 
 type LatLngLiteral = google.maps.LatLngLiteral;
 type MapOptions = google.maps.MapOptions;
@@ -82,7 +82,7 @@ const Map = () => {
         )}
 
         {isCongestionEnabled
-          ? jams.map((jam) => <CongestionCircle jam={jam} key={jam.id} />)
+          ? jams.map((jam) => <CongestionMarker jam={jam} key={jam.id} />)
           : ""}
       </GoogleMap>
     </div>

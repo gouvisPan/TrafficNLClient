@@ -81,28 +81,8 @@ const CongestionCircle: React.FC<{ jam: TrafficJam }> = (props) => {
 
   const iconS = {
     url: congestionIcon,
-    scaledSize: new google.maps.Size(15, 15),
+    scaledSize: new google.maps.Size(12, 12),
   };
-
-  const markerClickHandler = () => {
-    dispatch(uiActions.setDisplayingEvent(props.jam.id));
-    if (props.jam.label === "closed") return;
-
-    const service = new google.maps.DirectionsService();
-    service.route(
-      {
-        origin: props.jam.fromLoc,
-        destination: props.jam.toLoc,
-        travelMode: google.maps.TravelMode.DRIVING,
-      },
-      (result, status) => {
-        if (status === "OK" && result) {
-          setDirections(result);
-        }
-      }
-    );
-  };
-
   return (
     <>
       {areCirclesEnabled && (
@@ -110,7 +90,7 @@ const CongestionCircle: React.FC<{ jam: TrafficJam }> = (props) => {
       )}
       <Marker
         position={props.jam.fromLoc}
-        onClick={markerClickHandler}
+        onClick={() => dispatch(uiActions.setDisplayingEvent(props.jam.id))}
         options={{
           icon: iconS,
           clickable: true,
@@ -127,20 +107,6 @@ const CongestionCircle: React.FC<{ jam: TrafficJam }> = (props) => {
           }}
         />
       )}
-
-      {/* {directions && (
-        <DirectionsRenderer
-          directions={directions}
-          options={{
-            suppressMarkers: true,
-            polylineOptions: {
-              zIndex: 50,
-              strokeColor: routeColor,
-              strokeWeight: 5,
-            },
-          }}
-        />
-      )} */}
     </>
   );
 };
