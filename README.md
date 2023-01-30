@@ -32,13 +32,24 @@ A web application that displays information about the traffic situation in the N
 git clone https://github.com/gouvisPan/TrafficNLClient.git
 ```
 
-2) Go to the project directory: cd TrafficNLClient
+2) Go to the project directory: 
+```
+cd TrafficNLClient
+```
 
-3) Install dependencies: npm install
+3) Install dependencies:
+```
+npm install
+```
+
  
 4) Start the backend server ( https://github.com/gouvisPan/TrafficNLServer )
 
-5) Start the app: npm start
+5) Start the app:
+```
+ npm start
+```
+ 
 
 note: The proxy is set to http://localhost:3000/.
 
