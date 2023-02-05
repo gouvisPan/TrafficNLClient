@@ -1,12 +1,12 @@
 import React from "react";
 import { Circle, Marker, Polyline } from "@react-google-maps/api";
 import TrafficJam from "../../../../model/TrafficJam";
-import { calculateCenter } from "../../../../helpers/calculateCenter";
 import { calculateDistance } from "../../../../helpers/calculateDistance";
 
 import { useAppDispatch, useAppSelector } from "../../../../hooks/hooks";
 import { uiActions } from "../../../../store/reducers/ui-slice";
 import { decodePolylinePath } from "../../../../helpers/decodePolylinePath";
+import { calculateCenter } from "../../../../helpers/calculateCenter";
 
 const colorRed = "#FF5252";
 const colorOrange = "#FBC02D";
@@ -51,6 +51,7 @@ const CongestionDrawings: React.FC<{ jam: TrafficJam }> = (props) => {
   };
 
   const center = calculateCenter(props.jam.fromLoc, props.jam.toLoc);
+
   const radius = calculateDistance(props.jam.fromLoc, props.jam.toLoc) / 2;
   let routeColor = colorBlack;
   let options = closedRoad;

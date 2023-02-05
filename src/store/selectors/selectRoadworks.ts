@@ -1,6 +1,7 @@
 import Roadwork from "../../model/Roadwork";
+import StoreEvent from "../../model/StoreEvent";
 
-export const selectRoadworks = (events: any) => {
+export const selectRoadworks = (events: StoreEvent[] | undefined) => {
   const roadworkList: Roadwork[] = [];
 
   if (events) {

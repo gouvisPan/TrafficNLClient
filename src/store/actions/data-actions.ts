@@ -1,5 +1,4 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { AxiosError } from "axios";
 import * as api from "../../api/trafficRetriveService";
 import { normalizeApiEvents } from "../../helpers/normalizeApiEvents";
 import { dataActions } from "../reducers/data-slice";
@@ -37,5 +36,5 @@ export const getSpecificTraffic = createAsyncThunk(
 );
 
 //I created two seperate Routes, one for current and one for specific events, to demonstrate a multiroute
-//environment. The ame results can be achieved by using the "getSpecificTraffic" functions with the current
+//environment. The same results can be achieved by using the "getSpecificTraffic" functions with the current
 //date-time as an argument

@@ -9,20 +9,18 @@ import RadarMarker from "./CustomMarkers/RadarMarker";
 import { selectJams } from "../../../store/selectors/selectJams";
 import CongestionDrawings from "./CustomMarkers/CongestionDrawings";
 import CongestionMarker from "./CustomMarkers/CongestionMarker";
+import useSelectEvents from "../../../hooks/useSelectEvents";
 
 type LatLngLiteral = google.maps.LatLngLiteral;
 type MapOptions = google.maps.MapOptions;
 
 const Map = () => {
-  const roadworks = useAppSelector((state) => selectRoadworks(state.data.data));
-  const radars = useAppSelector((state) => selectRadars(state.data.data));
-  const jams = useAppSelector((state) => selectJams(state.data.data));
-  const { isRoadworkEnabled } = useAppSelector((state) => state.ui);
-  const { isSpeedcamEnabled } = useAppSelector((state) => state.ui);
-  const { isCongestionEnabled } = useAppSelector((state) => state.ui);
+  const { roadworks, radars, jams } = useSelectEvents();
+  const { isRoadworkEnabled, isSpeedcamEnabled, isCongestionEnabled } =
+    useAppSelector((state) => state.ui);
 
   const mapRef = useRef<GoogleMap>();
-  //displaying YourSurprise as the default landing location
+
   const defaultCenter = useMemo<LatLngLiteral>(
     () => ({ lat: 51.645253, lng: 3.938875 }),
     []

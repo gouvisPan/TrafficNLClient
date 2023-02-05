@@ -1,6 +1,7 @@
 import Radar from "../../model/Radar";
+import StoreEvent from "../../model/StoreEvent";
 
-export const selectRadars = (events: any) => {
+export const selectRadars = (events: StoreEvent[] | undefined) => {
   const radarList: Radar[] = [];
 
   if (events) {

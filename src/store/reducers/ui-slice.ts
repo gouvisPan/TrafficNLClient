@@ -1,7 +1,4 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import StoreEvent from "../../model/StoreEvent";
-import TrafficEvent from "../../model/TrafficEvent";
-import TrafficJam from "../../model/TrafficJam";
 
 interface uiSliceState {
   isSliderOpen: boolean;
