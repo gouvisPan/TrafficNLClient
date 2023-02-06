@@ -1,12 +1,9 @@
-import React, { useCallback, useMemo, useRef } from "react";
+import { useCallback, useMemo, useRef } from "react";
 import { GoogleMap, MarkerClusterer } from "@react-google-maps/api";
 import "./Map.scss";
 import { useAppSelector } from "../../../hooks/hooks";
-import { selectRoadworks } from "../../../store/selectors/selectRoadworks";
 import RoadWorkMarker from "./CustomMarkers/RoadWorkMarker";
-import { selectRadars } from "../../../store/selectors/selectRadars";
 import RadarMarker from "./CustomMarkers/RadarMarker";
-import { selectJams } from "../../../store/selectors/selectJams";
 import CongestionDrawings from "./CustomMarkers/CongestionDrawings";
 import CongestionMarker from "./CustomMarkers/CongestionMarker";
 import useSelectEvents from "../../../hooks/useSelectEvents";

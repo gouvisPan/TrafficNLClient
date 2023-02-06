@@ -1,10 +1,8 @@
 import React from "react";
-import { Circle, Marker, Polyline } from "@react-google-maps/api";
+import { Circle, Polyline } from "@react-google-maps/api";
 import TrafficJam from "../../../../model/TrafficJam";
 import { calculateDistance } from "../../../../helpers/calculateDistance";
-
-import { useAppDispatch, useAppSelector } from "../../../../hooks/hooks";
-import { uiActions } from "../../../../store/reducers/ui-slice";
+import { useAppSelector } from "../../../../hooks/hooks";
 import { decodePolylinePath } from "../../../../helpers/decodePolylinePath";
 import { calculateCenter } from "../../../../helpers/calculateCenter";
 

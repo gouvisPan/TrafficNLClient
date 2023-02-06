@@ -7,9 +7,8 @@ import { useAppDispatch, useAppSelector } from "../../../../hooks/hooks";
 import { uiActions } from "../../../../store/reducers/ui-slice";
 
 const ShowHideControls = () => {
-  const { isRoadworkEnabled } = useAppSelector((state) => state.ui);
-  const { isSpeedcamEnabled } = useAppSelector((state) => state.ui);
-  const { isCongestionEnabled } = useAppSelector((state) => state.ui);
+  const { isRoadworkEnabled, isSpeedcamEnabled, isCongestionEnabled } =
+    useAppSelector((state) => state.ui);
   const dispatch = useAppDispatch();
 
   return (
